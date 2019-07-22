@@ -1,13 +1,3 @@
-"""
-cubic lr 0.9982742257437094
-quad lr 0.9962699891438975
-xgb reg 0.9902314731106159
-xgb reg 200 0.9779603890656204
-xgb reg 300 0.9694051296088818
-xgb reg 500 0.954436515095419
-xgb reg 500-4 0.9210639235355089
-xgb reg 0.8703834657089595
-"""
 import pickle
 import numpy as np
 import pandas as pd
@@ -125,15 +115,9 @@ y_te_stack = stack.predict(tX)
 # l2_y_tr = model.predict(tr_X)
 # print(grd.best_params_)
 # print(grd.best_score_)
-# print("xgb reg",rmsle(y,l2_y_tr))
-# print(np.expm1(l2_y_tr)[0:4])
-# y_te = np.expm1(stack.predict(tX))
-# sub=pd.read_csv('sub1.csv')
-# sub['cc_cons'] = y_te
-# sub.to_csv('sub3.csv',index=False)
 
 # y_te = np.expm1(0.78*stack.predict(tX)+ 0.04*y_te_lgb+0.05*y_te_ridge+0.05*y_te_svr+0.03*y_te_elastic+0.03*y_te_huber)
-sub=pd.read_csv('sub1.csv')
+# sub=pd.read_csv('sub1.csv')
 # sub['cc_cons'] = y_te
 # sub.to_csv('sub12.csv',index=False)
 
@@ -152,19 +136,13 @@ sub=pd.read_csv('sub1.csv')
 # sub['cc_cons'] = y_te
 # sub.to_csv('sub12x2.csv',index=False)
 
-sub1=pd.read_csv('x1.csv')
-sub2 = pd.read_csv('x2.csv')
-sub['cc_cons'] = (sub1['cc_cons']+sub2['cc_cons'])/2
-sub.to_csv('sub12x3.csv',index=False)
 
 
-
-
-# y_te = np.expm1(0.8*stack.predict(tX)+ 0.08*y_te_lgb+0.12*y_te_ridge)
-# sub=pd.read_csv('sub1.csv')
-# sub['cc_cons'] = y_te
-# sub.to_csv('sub32.csv',index=False)
-###y_te = np.expm1(0.8*stack.predict(tX)+ 0.08*y_te_lgb+0.12*y_te_ridge)
+y_te = np.expm1(0.8*stack.predict(tX)+ 0.08*y_te_lgb+0.12*y_te_ridge)
+sub=pd.read_csv('sub1.csv')
+sub['cc_cons'] = y_te
+sub.to_csv('sub32.csv',index=False)
+##y_te = np.expm1(0.8*stack.predict(tX)+ 0.08*y_te_lgb+0.12*y_te_ridge)
 
 
 # y_te = 0.95*np.expm1(0.8*stack.predict(tX)+0.08*y_te_ridge+0.12*y_te_ridge)+0.05*np.array(y_avg)
@@ -172,6 +150,6 @@ sub.to_csv('sub12x3.csv',index=False)
 # sub['cc_cons'] = y_te
 # sub.to_csv('sub3x.csv',index=False)
 # y_te = 0.98*np.expm1(0.8*stack.predict(tX)+0.08*y_te_ridge+0.12*y_te_ridge)+0.02*np.array(y_avg)
-sub=pd.read_csv('sub1.csv')
+# sub=pd.read_csv('sub1.csv')
 # sub['cc_cons'] = y_te
 # sub.to_csv('sub3xx.csv',index=False)
